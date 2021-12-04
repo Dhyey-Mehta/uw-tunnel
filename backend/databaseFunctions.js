@@ -51,8 +51,8 @@ const backtracefn = (backJson,start,end) =>{
   path.push(end);
   curr = backJson[end];
   while (curr!=start){
-    curr = backJson[curr];
     path.unshift(curr);
+    curr = backJson[curr];
   }
   path.unshift(start);
   return path;
@@ -72,12 +72,5 @@ const checkBuildingExists = async (buildingNames) =>{
   });
   return result;
 }
-
-
-const test = async () =>{
-  console.log(await checkBuildingExists(["E3","SLC","notinDB"]));
-}
-
-test();
 
 module.exports = {getPath,checkBuildingExists,testConnection}

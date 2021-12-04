@@ -1,13 +1,9 @@
 const mongo = require("./mongo-connect");
 
 const exampleJSON = [
-    {name:"Quantum-Nano Centre"},
-    {code: "E3"},
+    {name:"Biology 2"},
+    {code: "B2"},
     {connections: [
-        {building:"CPH", floor:2, cardinality: "West" },
-        {building:"E5", floor:4, cardinality:"East"},
-        {building:"DC", floor:1, cardinality:"North"},
-        {building:"EIT", floor:3, cardinality:"West"}
     ]}
 ]
 
