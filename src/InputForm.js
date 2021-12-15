@@ -1,13 +1,21 @@
 import { useState } from "react";
 import axios from "axios";
+import Button from '@mui/material/Button';
+import TextInput from "./TextInput";
+
+const options = ["PAC","SLC","MC","DC"]
 
 const InputForm = () =>{
-    const [val,setVal] = useState({start:"",end:""});
+    const [valStart,setValStart] = useState("");
+    const [userInStart,setUserInStart] = useState(options[0]);
+    const [valEnd,setValEnd] = useState("");
+    const [userInEnd,setUserInEnd] = useState(options[0]);
 
     const submitForm = (event)=>{
+        //Make sure that the page does not refresh when submit form is clicked
         event.preventDefault();
         //Replace with actual API link in prod
-        const apiURL = `http://localhost:4040/route/${val.start}/${val.end}`;
+        const apiURL = `http://localhost:4040/route/${valStart}/${valEnd}`;
 
         axios.get(apiURL).then(
             (res)=>{
@@ -21,9 +29,9 @@ const InputForm = () =>{
     return(
         <div>
             <form onSubmit={submitForm}>
-                <input type="text" value={val.start} onChange={(e)=>{setVal({...val,start:e.target.value})}} />
-                <input type="text" value={val.end} onChange={(e)=>{setVal({...val,end:e.target.value})}} />
-                <button type="submit" onClick={submitForm}>Submit</button>
+                <TextInput innerText="From" val={valStart} setVal={setValStart} userIn={userInStart} setUserIn={setUserInStart} options={options}/>
+                <TextInput innerText="To" val={valEnd} setVal={setValEnd} userIn={userInEnd} setUserIn={setUserInEnd} options={options}/>
+                <Button size="medium" type="submit" varient="outlined" colour="primary" onClick={submitForm}> Submit </Button>
             </form> 
         </div>
     );
