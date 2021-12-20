@@ -34,13 +34,11 @@ const getPath = async (start,end) => {
   //backtracefn: backJson:Json start:Str end:Str -> (array string) or false
   const backtracefn = (backJson,start,end) =>{
     path = [];
-    path.push(end);
-    curr = backJson[end];
+    curr = end;
     while (curr!=start){
-      path.unshift(curr);
-      curr = backJson[curr];
+      path.unshift(backJson[curr]);
+      curr = backJson[curr].from;
     }
-    path.unshift(start);
     return path;
   }
 
@@ -59,13 +57,16 @@ const getPath = async (start,end) => {
     }
 
     //Searches for all connections to the current node in DB
-    conns = await db.collection(curr).findOne({connections:{$exists:true}});
-    neighbours = conns.connections
+    currData = await db.collection(curr).find({}).toArray();
+    neighbours = currData[3].connections;
     neighbours.forEach(neighbour => {
-      if (! visited.includes(neighbour.building)){
-        q.push(neighbour.building);
-        visited.push(neighbour.building);
-        backtrace[neighbour.building] = curr;
+      if (! visited.includes(neighbour.code)){
+        q.push(neighbour.code);
+        visited.push(neighbour.code);
+        backtrace[neighbour.code] = {from:curr,
+                                     to:neighbour.code,
+                                     cardinality:neighbour.cardinality,
+                                     floor:neighbour.floor};
       }});
   }
   
