@@ -1,16 +1,19 @@
 import InputForm from "./InputForm";
-import TextInput from './TextInput'
-import BuildingCard from "./BuildingCard"
+import BuildingCard from "./BuildingCard";
 import bigLogo from "./BigLogo.png";
 import "./App.css";
 
 const App = () =>{
   return (
   <div className="body">
-    <div style={{textAlign:"center"}} >
-      <img src={bigLogo} alt="Warm Warriors" />
+    <div className="centered">
+      <img src={bigLogo} 
+      width={433/2} 
+      height={281/2} 
+      alt="Warm Warriors" 
+      className="centered-img" />
+      <InputForm />
     </div>
-    <InputForm />
   </div>
   );
 }

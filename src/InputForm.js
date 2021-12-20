@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import Button from '@mui/material/Button';
 import TextInput from "./TextInput";
+import "./App.css";
 
 const options = ["PAC","SLC","MC","DC"]
 
@@ -29,9 +30,9 @@ const InputForm = () =>{
     return(
         <div>
             <form onSubmit={submitForm}>
-                <TextInput innerText="From" val={valStart} setVal={setValStart} userIn={userInStart} setUserIn={setUserInStart} options={options}/>
-                <TextInput innerText="To" val={valEnd} setVal={setValEnd} userIn={userInEnd} setUserIn={setUserInEnd} options={options}/>
-                <Button size="medium" type="submit" varient="outlined" colour="primary" onClick={submitForm}> Submit </Button>
+                <TextInput innerText="From" val={valStart} setVal={setValStart} userIn={userInStart} setUserIn={setUserInStart} options={options} className="text-box" />
+                <TextInput innerText="To" val={valEnd} setVal={setValEnd} userIn={userInEnd} setUserIn={setUserInEnd} options={options} className="text-box"/>
+                <Button size="medium" type="submit" varient="outlined" colour="primary" onClick={submitForm} className="centered" > Submit </Button>
             </form> 
         </div>
     );
