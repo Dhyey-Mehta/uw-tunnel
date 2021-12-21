@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import TextInput from "./TextInput";
 import "./App.css";
 
-const options = ["PAC","SLC","MC","DC"]
+const options = ["B1","B2","C2","DC","E3","E5","EIT","ESC","M3","MC","PAC","QNC","SLC"]
 
 const InputForm = () =>{
     const [valStart,setValStart] = useState("");
@@ -32,7 +32,7 @@ const InputForm = () =>{
             <form onSubmit={submitForm}>
                 <TextInput innerText="From" val={valStart} setVal={setValStart} userIn={userInStart} setUserIn={setUserInStart} options={options} className="text-box" />
                 <TextInput innerText="To" val={valEnd} setVal={setValEnd} userIn={userInEnd} setUserIn={setUserInEnd} options={options} className="text-box"/>
-                <Button size="medium" type="submit" varient="outlined" colour="primary" onClick={submitForm} className="centered" > Submit </Button>
+                <Button sx={{marginTop:2}} size="medium" type="submit" varient="outlined" colour="primary" onClick={submitForm} className="centered" > Submit </Button>
             </form> 
         </div>
     );

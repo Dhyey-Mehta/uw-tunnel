@@ -6,8 +6,8 @@ const TextInput = ({innerText,val,setVal,userIn,setUserIn,options}) => {
         <div>
             <AutoComplete 
             value={val}
-            sx={{width:300}}
-            onChange={(event,newVal)=>{setVal(newVal)}}
+            sx={{width:500,marginTop:1,marginBottom:1}}
+                        onChange={(event,newVal)=>{setVal(newVal)}}
             inputValue={userIn}
             onInputChange={(event,newVal)=>{setUserIn(newVal)}}
             options={options}
