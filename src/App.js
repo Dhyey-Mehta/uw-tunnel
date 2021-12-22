@@ -1,6 +1,7 @@
 import InputForm from "./InputForm";
-import BuildingCard from "./BuildingCard";
+import MakeCards from "./makeCards";
 import bigLogo from "./BigLogo.png";
+import { useState } from "react";
 import "./App.css";
 
 const App = () =>{
@@ -12,7 +13,7 @@ const App = () =>{
       height={281/2} 
       alt="Warm Warriors" 
       className="centered-img" />
-      <InputForm />
+      <InputForm /> 
     </div>
   </div>
   );

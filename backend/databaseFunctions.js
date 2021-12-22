@@ -58,7 +58,8 @@ const getPath = async (start,end) => {
 
     //Searches for all connections to the current node in DB
     currData = await db.collection(curr).find({}).toArray();
-    neighbours = currData[3].connections;
+    const img = currData[2].imgLnk;
+    const neighbours = currData[3].connections;
     neighbours.forEach(neighbour => {
       if (! visited.includes(neighbour.code)){
         q.push(neighbour.code);
@@ -66,7 +67,8 @@ const getPath = async (start,end) => {
         backtrace[neighbour.code] = {from:curr,
                                      to:neighbour.code,
                                      cardinality:neighbour.cardinality,
-                                     floor:neighbour.floor};
+                                     floor:neighbour.floor,
+                                     currImg:img};
       }});
   }
   

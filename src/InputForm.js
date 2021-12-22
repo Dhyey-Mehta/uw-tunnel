@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import Button from '@mui/material/Button';
 import TextInput from "./TextInput";
+import makeCards from "./makeCards"
 import "./App.css";
 
 const options = ["B1","B2","C2","DC","E3","E5","EIT","ESC","M3","MC","PAC","QNC","SLC"]
