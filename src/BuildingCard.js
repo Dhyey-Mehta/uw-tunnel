@@ -29,7 +29,10 @@ const GeneralCard = ({title,subTitle,imgLink}) =>{
 }
 
 const BuildingCard = ({buildingCode,floor,cardinality,dest,img}) =>{
-    const subText = `Go to floor ${floor} and head ${cardinality} to ${dest}`;
+    let subText = `Go to floor ${floor} and take the ${cardinality} bridge to ${dest}`;
+    if (floor==-1){
+        subText = `Head ${cardinality} to ${dest}`;
+    }
     return(
         <GeneralCard title={buildingCode} subTitle={subText} imgLink={img}/>
     );
