@@ -57,9 +57,9 @@ const getPath = async (start,end) => {
     }
 
     //Searches for all connections to the current node in DB
-    currData = await db.collection(curr).find({}).toArray();
-    const img = currData[2].imgLnk;
-    const neighbours = currData[3].connections;
+    currData = await db.collection(curr).find({},{projection: {_id:0, imgLnk:1,connections:1}}).toArray();
+    const img = currData.find(element=> ("imgLnk" in element)).imgLnk;
+    const neighbours = currData.find(element=> ("connections" in element)).connections;
     neighbours.forEach(neighbour => {
       if (! visited.includes(neighbour.code)){
         q.push(neighbour.code);
