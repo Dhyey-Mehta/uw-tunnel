@@ -1,12 +1,18 @@
 import InputForm from "./InputForm";
-import MakeCards from "./makeCards";
 import bigLogo from "./BigLogo.png";
-import { useState } from "react";
 import "./App.css";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const App = () =>{
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  }); 
+
+
   return (
-  <div className="body">
+  <div className="body" theme={darkTheme}>
     <div className="centered">
       <img src={bigLogo} 
       width={433/2} 

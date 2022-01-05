@@ -25,6 +25,14 @@ const getPath = async (start,end) => {
   //DB connection stuff
   await client.connect();
   const db = client.db("uw-tunnel");
+
+  //checks in cache for path, if one exists
+
+    const checkForCache = await db.collection("cache").findOne({start:start, end:end},{path:1, _id:0});
+
+    if (checkForCache != null){
+      return checkForCache.path;
+    }
   
   //Backtrace object used for pathing after BFS is done
   backtrace = {};
@@ -39,6 +47,7 @@ const getPath = async (start,end) => {
       path.unshift(backJson[curr]);
       curr = backJson[curr].from;
     }
+    cache(start,end,path);
     return path;
   }
 
@@ -95,5 +104,15 @@ const checkBuildingExists = async (buildingNames) =>{
   return result;
 }
 
+//cache: Stores a computed path from start to end in the database for future reference
+// Str Str (array Object) -> Void
+const cache = async (start,end,path)=>{
+  await client.connect();
+  const db = client.db("uw-tunnel");
+
+  await db.collection("cache").insertOne({start:start,end:end,path:path});
+  client.close();
+}
+
 //Export for use in other files 
-module.exports = {getPath,checkBuildingExists,testConnection}
+module.exports = {getPath,checkBuildingExists,testConnection,cache}

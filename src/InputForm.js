@@ -37,9 +37,30 @@ const InputForm = () =>{
         return(
             <div>
                 <form onSubmit={submitForm}>
-                    <TextInput innerText="From" val={valStart} setVal={setValStart} userIn={userInStart} setUserIn={setUserInStart} options={options} className="text-box" />
-                    <TextInput innerText="To" val={valEnd} setVal={setValEnd} userIn={userInEnd} setUserIn={setUserInEnd} options={options} className="text-box"/>
-                    <Button sx={{marginTop:2}} size="medium" type="submit" varient="outlined" colour="primary" onClick={submitForm} className="centered" > Submit </Button>
+                    <TextInput innerText="From" 
+                        val={valStart} 
+                        setVal={setValStart} 
+                        userIn={userInStart} 
+                        setUserIn={setUserInStart} 
+                        options={options} 
+                        className="text-box" />
+                    <TextInput 
+                        innerText="To" 
+                        val={valEnd} 
+                        setVal={setValEnd} 
+                        userIn={userInEnd} 
+                        setUserIn={setUserInEnd} 
+                        options={options} 
+                        className="text-box"/>
+                    <Button 
+                        sx={{marginTop:2}} 
+                        size="medium" 
+                        type="submit" 
+                        varient="outlined" 
+                        colour="primary" 
+                        onClick={submitForm} 
+                        className="centered"> 
+                    Submit </Button>
                 </form> 
             </div>
         );
