@@ -17,7 +17,7 @@ const MakeCards = ({pathLst})=> {
 
     return (
         <div>
-            <h1 style={{textAlign:'center'}}>Path from {pathLst[0].from} to {destName} </h1>
+            <p style={{textAlign:'center',fontSize:30,color:"#D65A31"}}>Path from {pathLst[0].from} to {destName} </p>
             <div style={{display:'flex'}}>
                 {arr}
                 <BuildingCard 

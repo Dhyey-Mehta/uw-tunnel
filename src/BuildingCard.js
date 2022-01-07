@@ -3,6 +3,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography'
 import Flippy, {FrontSide,BackSide} from 'react-flippy';
+import Images from './images/importImg'
 
 const GeneralCard = ({title,imgLink}) =>{
     return(
@@ -37,7 +38,7 @@ const BuildingCard = ({buildingCode,floor,cardinality,dest,img}) =>{
     else if (floor===-2){
         subText=`You have arrived at your destination!`
     }
-
+    
     return(
     <Flippy
         flipOnHover={true} 
@@ -51,9 +52,18 @@ const BuildingCard = ({buildingCode,floor,cardinality,dest,img}) =>{
                 imgLink={img}/>
         </FrontSide>
         <BackSide>
-            <Typography align='center' variant='h4'>
-                {subText}
-            </Typography>
+            <Card sx={{height:280}}>
+                    <CardMedia 
+                    component="img"
+                    image = {Images[buildingCode]} 
+                    alt={buildingCode}
+                    />
+                    <CardContent>
+                        <Typography gutterBottom={true} variant="subtitle1" component="div">
+                            {subText}
+                        </Typography>
+                    </CardContent>
+            </Card>
         </BackSide>
     </Flippy>
     );

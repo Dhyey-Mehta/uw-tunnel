@@ -6,7 +6,7 @@ const BottomDrawer = () =>{
         <footer className="foot">
             <Button size="small">What is this?</Button>
             <span style={{width:10}}></span>
-            <Button size="small">About me</Button>
+            <Button size="small">About Me</Button>
         </footer>
     );
 }

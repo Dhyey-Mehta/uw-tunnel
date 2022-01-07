@@ -70,7 +70,7 @@ const InputForm = () =>{
 
     //Loading
     else if (completed.stage===2){
-        return(<PushSpinner size={50} color="#D65A31" style={{marginLeft:50}}/>);
+        return(<div className="spinner"> <PushSpinner size={50} color="#D65A31"/> </div>);
     }
     //Done
     else if (completed.stage===3){
