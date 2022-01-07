@@ -1,20 +1,26 @@
 import BuildingCard from "./BuildingCard";
-import AwesomeSlider from 'react-awesome-slider';
-import 'react-awesome-slider/dist/styles.css';
+import "./App.css"
 
 const MakeCards = ({pathLst})=> {
+    const lastImage = pathLst.pop().lastImg;
     const arr = pathLst.map((x)=>
     <div>
-        <BuildingCard buildingCode={x.from} floor={x.floor} cardinality={x.cardinality} dest={x.to} img={x.currImg} />
-    </div>
-    )
-    //Card for destination
-    
+        <BuildingCard 
+            buildingCode={x.from} 
+            floor={x.floor}
+            cardinality={x.cardinality}
+            dest={x.to} 
+            img={x.currImg} />
+    </div>);
+
+
     return (
-        <div>
-            <AwesomeSlider>
-                {arr}
-            </AwesomeSlider>
+        <div style={{display:'flex'}}>
+            {arr}
+            <BuildingCard 
+                buildingCode={pathLst.slice(-1)[0].to} 
+                floor={-2}
+                img={lastImage}/>
         </div>
     );
 }

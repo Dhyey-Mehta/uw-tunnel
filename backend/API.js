@@ -22,6 +22,9 @@ app.get("/route/:start/:end", async (req,res)=>{
   }
   else{
     const path = await db.getPath(start,end);
+    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    console.log(`Found path from ${start} to ${end}!`);
+    console.log(`Sending path to ${ip}`);
     res.status(200).send({"path":path});
   }
 })

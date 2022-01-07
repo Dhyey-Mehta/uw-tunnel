@@ -1,27 +1,31 @@
 import InputForm from "./InputForm";
 import bigLogo from "./BigLogo.png";
 import "./App.css";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import {createTheme,ThemeProvider} from '@mui/material/styles';
+import CssBaseline from "@mui/material/CssBaseline";
 
 const App = () =>{
-  const darkTheme = createTheme({
+  const theme = createTheme({
     palette: {
       mode: 'dark',
     },
   }); 
 
-
   return (
-  <div className="body" theme={darkTheme}>
-    <div className="centered">
-      <img src={bigLogo} 
-      width={433/2} 
-      height={281/2} 
-      alt="Warm Warriors" 
-      className="centered-img" />
-      <InputForm /> 
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <div className="body">
+      <div className="centered">
+        <img src={bigLogo} 
+        width={433/2} 
+        height={281/2} 
+        alt="Warm Warriors" 
+        className="centered-img" />
+        <InputForm /> 
+      </div>
+      <footer className="foot">Test</footer>
     </div>
-  </div>
+  </ThemeProvider>
   );
 }
 

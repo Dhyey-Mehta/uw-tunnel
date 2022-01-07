@@ -40,13 +40,14 @@ const getPath = async (start,end) => {
   //backtracefn: Takes in a "backtrace" object and returns a path 
   //   from start to end
   //backtracefn: backJson:Json start:Str end:Str -> (array string) or false
-  const backtracefn = (backJson,start,end) =>{
+  const backtracefn = (backJson,start,end,lastImage) =>{
     path = [];
     curr = end;
     while (curr!=start){
       path.unshift(backJson[curr]);
       curr = backJson[curr].from;
     }
+    path.push({lastImg:lastImage})
     cache(start,end,path);
     return path;
   }
@@ -61,8 +62,11 @@ const getPath = async (start,end) => {
 
     //Desired end has been found
     if (curr==end){
+      //Inserting image of destination
+      const query = await db.collection(end).find({},{projection: {_id:0, imgLnk:1,connections:1}}).toArray();
+      lastImg = query.find(element=> ("imgLnk" in element)).imgLnk;
       client.close();
-      return backtracefn(backtrace,start,end);
+      return backtracefn(backtrace,start,end,lastImg);
     }
 
     //Searches for all connections to the current node in DB
