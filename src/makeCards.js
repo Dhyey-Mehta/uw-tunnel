@@ -3,6 +3,7 @@ import "./App.css"
 
 const MakeCards = ({pathLst})=> {
     const lastImage = pathLst.pop().lastImg;
+    const destName = pathLst.slice(-1)[0].to;
     const arr = pathLst.map((x)=>
     <div>
         <BuildingCard 
@@ -15,12 +16,15 @@ const MakeCards = ({pathLst})=> {
 
 
     return (
-        <div style={{display:'flex'}}>
-            {arr}
-            <BuildingCard 
-                buildingCode={pathLst.slice(-1)[0].to} 
-                floor={-2}
-                img={lastImage}/>
+        <div>
+            <h1 style={{textAlign:'center'}}>Path from {pathLst[0].from} to {destName} </h1>
+            <div style={{display:'flex'}}>
+                {arr}
+                <BuildingCard 
+                    buildingCode={destName} 
+                    floor={-2}
+                    img={lastImage}/>
+            </div>
         </div>
     );
 }

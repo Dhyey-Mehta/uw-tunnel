@@ -5,6 +5,7 @@ import TextInput from "./TextInput";
 import MakeCards from "./makeCards";
 import {PushSpinner} from "react-spinners-kit";
 import "./App.css";
+import {IoMapSharp} from 'react-icons/io5';
 
 const options = ["B1","B2","C2","DC","E3","E5","EIT","ESC","M3","MC","PAC","QNC","SLC"]
 
@@ -30,6 +31,7 @@ const InputForm = () =>{
             }
         ).catch((err)=>{
             console.log(err);
+            setCompleted({stage:4,path:[]});
         })
     }
 
@@ -54,13 +56,13 @@ const InputForm = () =>{
                         options={options} 
                         className="text-box"/>
                     <Button 
-                        sx={{marginTop:2}} 
+                        sx={{marginTop:5}} 
                         size="medium" 
                         type="submit" 
-                        varient="outlined" 
+                        variant="contained" 
                         onClick={submitForm} 
                         className="centered"> 
-                    Submit </Button>
+                    <IoMapSharp style={{marginRight:4}} /> Find Path </Button>
                 </form> 
             </div>
         );
@@ -68,11 +70,14 @@ const InputForm = () =>{
 
     //Loading
     else if (completed.stage===2){
-        return(<PushSpinner size={50} color="#F6C90E" className='centered' />);
+        return(<PushSpinner size={50} color="#D65A31" style={{marginLeft:50}}/>);
     }
     //Done
     else if (completed.stage===3){
         return (<MakeCards pathLst={completed.path} />);
+    }
+    else if (completed.stage===4){
+        return(<h2 style={{textAlign:"center"}}>No path found!</h2>)
     }
 }
 
