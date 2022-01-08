@@ -44,7 +44,7 @@ const BuildingCard = ({buildingCode,floor,cardinality,dest,img}) =>{
         flipOnHover={true} 
         flipOnClick={true} 
         flipDirection="vertical" 
-        style={{ width: '280px', height: '280px' }} 
+        style={{ width: '280px', height: '290px' }} 
     >
         <FrontSide>
             <GeneralCard 

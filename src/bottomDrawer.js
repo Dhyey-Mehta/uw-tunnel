@@ -4,9 +4,9 @@ import Button from '@mui/material/Button';
 const BottomDrawer = () =>{
     return(
         <footer className="foot">
-            <Button size="small">What is this?</Button>
+            <Button size="small" target="_blank" href="https://github.com/Dhyey-Mehta/uw-tunnel">What is this?</Button>
             <span style={{width:10}}></span>
-            <Button size="small">About Me</Button>
+            <Button size="small" target="_blank" href="https://www.linkedin.com/in/dhyey-mehta-1377901a7/">About Me</Button>
         </footer>
     );
 }

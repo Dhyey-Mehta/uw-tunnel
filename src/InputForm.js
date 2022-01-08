@@ -77,7 +77,7 @@ const InputForm = () =>{
         return (<MakeCards pathLst={completed.path} />);
     }
     else if (completed.stage===4){
-        return(<h2 style={{textAlign:"center"}}>No path found!</h2>)
+        return(<p style={{textAlign:'center',fontSize:30,}}>No path found!</p>);
     }
 }
 

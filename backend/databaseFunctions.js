@@ -27,7 +27,6 @@ const getPath = async (start,end) => {
   const db = client.db("uw-tunnel");
 
   //checks in cache for path, if one exists
-
     const checkForCache = await db.collection("cache").findOne({start:start, end:end},{path:1, _id:0});
 
     if (checkForCache != null){
@@ -84,7 +83,6 @@ const getPath = async (start,end) => {
                                      currImg:img};
       }});
   }
-  
   //No path found:
   client.close();
   return false;
