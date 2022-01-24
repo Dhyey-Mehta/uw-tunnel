@@ -1,12 +1,14 @@
 <p align="center"><img src="./src/BigLogo.png" style=":50%; width:256px; height:150px" /></p>
 
+<p align="center"><a href="http://uw-tunnel.herokuapp.com/">Try the app out!</a></p>
+
 Warm Warriors is a web app developed to allow students to find their way around the various buildings on the uWaterloo campus using only the tunnels, bridges and connections that exist between buildings.
 
 In other words, Warm Warriors allows a student to travel across campus without having to deal with harsh Canadian winters 🥶 .
 
 ### The Frontend:
 
-The app itself was built using React.js and the Material UI library. The results (i.e. the path) is displayed as a list of cards, with each card flipping when the mouse hovers over it. The images on the back of the cards are pulled from publicly availible [floor plans from uWaterloo.](https://uwaterloo.ca/plant-operations/floor-plans)
+The app itself was built using React.js and the Material UI library. The results (i.e. the path) is displayed as a list of cards, with each card flipping when the mouse hovers over it. The images on the back of the cards are pulled from publicly available [floor plans from uWaterloo.](https://uwaterloo.ca/plant-operations/floor-plans)
 
 
 <p align="center"><img src="./screenshots/backCard.png" style="" /></p>
